@@ -1,4 +1,4 @@
-function [outputArg1,outputArg2] = register_histology(data_path, image_folder)
+function register_histology(data_path, image_folder)
 
 processed_images_folder = fullfile(image_folder, 'processed');
 
@@ -42,6 +42,6 @@ sliceBrowser(slice_figure_browser, processed_images_folder, atlas_figure_browser
 
 % use application in Atlas Transform Viewer
 % use this function if you have a processed_images_folder with appropriately processed .tif histology images
-f = AtlasTransformBrowser(atlas_figure_browser, tv_plot, av_plot, st, slice_figure_browser, processed_images_folder, probe_save_name_suffix, plane);
+AtlasTransformBrowser(atlas_figure_browser, tv_plot, av_plot, st, slice_figure_browser, processed_images_folder, probe_save_name_suffix, plane);
 end
 
