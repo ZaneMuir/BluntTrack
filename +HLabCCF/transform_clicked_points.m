@@ -68,8 +68,13 @@ for object_num = objects
 
     roi_location_curr = [ap dv ml];
     probe_tip = roi_location_curr(1, :);
-    probe_vec = mean(diff(roi_location_curr, 1, 1), 1);
-    probe_uvec = probe_vec / norm(probe_vec);
+%     probe_vec = mean(diff(roi_location_curr, 1, 1), 1);
+%     probe_uvec = probe_vec / norm(probe_vec);
+
+    probe_vec_dots = roi_location_curr(2:end, 1:end) - probe_tip;
+    probe_uvec_dots = probe_vec_dots ./ vecnorm(probe_vec_dots, 1, 2);
+    probe_uvec = sum(probe_uvec_dots, 1) / size(probe_uvec_dots, 1);
+
     roi_location{object_num} = struct('ROI', roi_location_curr, ...
         'probe_tip', probe_tip, 'probe_uvec', probe_uvec, ...
         'cooridnates', ["anterior", "ventral", "right"], ...
