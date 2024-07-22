@@ -35,7 +35,7 @@ end
 
 %%
 atlas_figure_browser = figure('Name', 'Atlas Viewer');
-slice_figure_browser = figure('Name','Slice Viewer');
+slice_figure_browser = figure('Name', 'Slice Viewer');
 
 reference_size = size(tv_plot);
 sliceBrowser(slice_figure_browser, processed_images_folder, atlas_figure_browser, reference_size);
